@@ -1,5 +1,5 @@
 <?php
-class Landing extends CI_Controller {
+class UserController extends CI_Controller {
 
 	public function index()
 	{
