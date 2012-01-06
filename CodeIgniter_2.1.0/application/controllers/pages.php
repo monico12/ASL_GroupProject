@@ -7,7 +7,6 @@
             if ( ! file_exists('application/views/pages/'.$page.'.php'))
             {
                 // Whoops, we don't have a page for that!
-		echo "Is this shit working?";
                 show_404();
             }
 	
