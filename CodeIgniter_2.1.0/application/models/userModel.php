@@ -7,7 +7,7 @@ class UserModel extends CI_Model {
         parent::__construct();
     }
 
-    //gets users by
+    //gets users by username
     function getUser($username)
     {
     	$query = $this->db->get_where('users', array('username' => $username));
@@ -23,6 +23,7 @@ class UserModel extends CI_Model {
         
     }
     
+    //gets all users
     function getAll()
     {
         $query = $this->db->get('users');
@@ -31,6 +32,20 @@ class UserModel extends CI_Model {
         {
             echo $row->username." ";
         }
+    }
+
+    //adds new user
+    //$data - array of the users data: first & last name, password, email and username
+    function createUser($data)
+    {
+        $this->db->insert('users', $data);
+    }
+
+    //updates user information
+    function updateUser($data)
+    {
+        $this->db->where('id', $data->id);
+        $this->db->update('users', $data); 
     }
     
 }
