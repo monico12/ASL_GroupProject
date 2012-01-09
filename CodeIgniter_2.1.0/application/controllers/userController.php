@@ -10,7 +10,6 @@ class UserController extends CI_Controller {
 	public function login()
 	{
 		$this->load->helper('url');
-		$this->load->library('session');
 		$this->load->helper('array');
 
 		
@@ -43,7 +42,6 @@ class UserController extends CI_Controller {
 	public function logout()
 	{
 		$this->load->helper('url');
-		$this->load->library('session');
 		redirect('', 'refresh');
 
 		$this->session->sess_destroy();
