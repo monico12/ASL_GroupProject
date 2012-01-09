@@ -1,7 +1,8 @@
 <?php
-	$this->load->library('session');
+	$this->load->library('session'); 
+		
+
 	$this->load->helper('form');
-	
 	echo form_open('userController/login');
 
 	echo form_label('Username: ', 'username');

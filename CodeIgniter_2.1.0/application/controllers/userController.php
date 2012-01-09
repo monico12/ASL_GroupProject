@@ -3,27 +3,17 @@ class UserController extends CI_Controller {
 
 	public function index()
 	{
-	        $this->load->helper('form');
-		$this->load->library('session');
-
-		
-		/*$dsn = 'mysql://root:root@localhost/aslGroupProject';
-		$this->load->database($dsn);
-		
-		
-		$this->load->model('UserModel');*/
-		//$test = $this->UserModel->getUser('admin');
-		
-		//$this->load->view('templates/header');
-
-
 				
 		
 	}
 	
 	public function login()
 	{
+		$this->load->helper('url');
+		$this->load->library('session');
+		$this->load->helper('array');
 
+		
 		$username = $this->input->post('username'); 
 		$password = $this->input->post('password');
 		//$enpassword = md5($password);
@@ -31,20 +21,32 @@ class UserController extends CI_Controller {
 		$dsn = 'mysql://root:root@localhost/aslGroupProject';
 		$this->load->database($dsn);
 		
-		
 		$this->load->model('UserModel');
-
-		$this->UserModel->getUser($username, $password);
 		
-	        //$this->session->set_userdata('username',$loggedUser);
-
+		$q = $this->UserModel->getUser($username, $password);
+		
+		if ($q->num_rows() > 0) {
+			
+			$loggedUser = $q->row()->username;
+			
+			$this->session->set_userdata('username',$loggedUser);
+			
+			$data['welcome'] = "Welcome $loggedUser";
+			$this->load->view('templates/userHeader', $data);
+		}else{
+			$data["error"] = "Wrong Username and Password";
+			redirect('', 'refresh');			
+		}
 		
 	}
 	
 	public function logout()
 	{
-		$this->session->sess_destroy();
+		$this->load->helper('url');
+		$this->load->library('session');
+		redirect('', 'refresh');
 
+		$this->session->sess_destroy();
 	}
 
 }

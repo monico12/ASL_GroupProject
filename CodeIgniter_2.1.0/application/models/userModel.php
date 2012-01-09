@@ -12,16 +12,11 @@ class UserModel extends CI_Model {
     {
     	$query = $this->db->get_where('users', array('username' => $username, 'password' => $password));
         
-        //var_dump($query->result());
+        		
+        
+        
+        return $query;
 
-    	//return $query->result();
-        
-        
-        foreach ($query->result() as $row)
-        {
-            echo $row->username;
-        }
-        
         
     }
     
@@ -32,7 +27,7 @@ class UserModel extends CI_Model {
         
         foreach($query->result() as $row)
         {
-            echo $row->username." ";
+            echo $row->username;
         }
     }
 
