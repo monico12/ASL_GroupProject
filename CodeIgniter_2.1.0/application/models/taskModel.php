@@ -12,7 +12,7 @@ class TaskModel extends CI_Model {
     function getAllTaskByProjectId($id)
     {
     	$query = $this->db->get_where('tasks', array('id' => $id));
-    	return $query-result();
+    	return $query;
     }
     
     //creates a new task
@@ -22,7 +22,7 @@ class TaskModel extends CI_Model {
     	$this->db->insert('tasks', $data);
     }
 
-    //deletes a task by its id
+    //deletes a task by task id
     function deleteTask($id)
     {
     	$this->db->delete('tasks', array('id' => $id));
