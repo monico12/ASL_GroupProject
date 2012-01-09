@@ -8,10 +8,11 @@ class TaskModel extends CI_Model {
         parent::__construct();
     }
     
-    //gets
-    function getAllTaskByUser($id)
+    //gets all task
+    function getAllTaskByProjectId($id)
     {
-    	
+    	$query = $this->db->get_where('tasks', array('id' => $id));
+    	return $query-result();
     }
     
     //creates a new task
@@ -19,6 +20,20 @@ class TaskModel extends CI_Model {
     function createTask($data)
     {
     	$this->db->insert('tasks', $data);
+    }
+
+    //deletes a task by its id
+    function deleteTask($id)
+    {
+    	$this->db->delete('tasks', array('id' => $id));
+    }
+
+    //updates task
+    //$data - array of task data: id, assigned id, progress, due date, task
+    function updateTask($data)
+    {
+    	$this->db-where('id', $data->id);
+    	$this->db-where('tasks', $data);
     }
 }
 

@@ -16,10 +16,10 @@ class UserModel extends CI_Model {
 
     	//return $query->result();
         
-        foreach($query->result() as $row)
+        /*foreach($query->result() as $row)
         {
             echo $row->username." ";
-        }
+        }*/
         
     }
     
