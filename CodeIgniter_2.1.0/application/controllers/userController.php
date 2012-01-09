@@ -3,13 +3,19 @@ class UserController extends CI_Controller {
 
 	public function index()
 	{
-		$dsn = 'mysql://root:root@localhost/aslGroupProject';
+	        $this->load->helper('form');
+		$this->load->library('session');
+
+		
+		/*$dsn = 'mysql://root:root@localhost/aslGroupProject';
 		$this->load->database($dsn);
 		
 		
-		$this->load->model('UserModel');
+		$this->load->model('UserModel');*/
 		//$test = $this->UserModel->getUser('admin');
-		$this->load->view('header');
+		
+		//$this->load->view('templates/header');
+
 
 				
 		
@@ -17,13 +23,18 @@ class UserController extends CI_Controller {
 	
 	public function login()
 	{
-		
+
 		$username = $this->input->post('username'); 
 		$password = $this->input->post('password');
 		//$enpassword = md5($password);
-		$this->UserModel->getUser($username, $password);
 		
-		echo "This is working!";
+		$dsn = 'mysql://root:root@localhost/aslGroupProject';
+		$this->load->database($dsn);
+		
+		
+		$this->load->model('UserModel');
+
+		$this->UserModel->getUser($username, $password);
 		
 	        //$this->session->set_userdata('username',$loggedUser);
 
