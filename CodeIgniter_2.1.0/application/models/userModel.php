@@ -16,23 +16,6 @@ class UserModel extends CI_Model {
 
     	return $query->result();
         
-<<<<<<< HEAD
-        /*foreach($query->result() as $row)
-        {
-            echo $row->username." ";
-        }*/
-||||||| merged common ancestors
-        foreach($query->result() as $row)
-        {
-            echo $row->username." ";
-        }
-=======
-        //foreach($query->result() as $row)
-        //{
-        //    echo $row->username." ";
-        //}
->>>>>>> bbb3426aad2e1b76f563cdbac0e146117782c325
-        
     }
     
     //gets all users
