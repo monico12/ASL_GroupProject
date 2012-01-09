@@ -24,7 +24,7 @@ class UserController extends CI_Controller {
 		
 		$q = $this->UserModel->getUser($username, $password);
 		
-		if ($q->num_rows() > 0) {
+		if($q->num_rows() > 0) {
 			
 			$loggedUser = $q->row()->username;
 			
@@ -33,16 +33,20 @@ class UserController extends CI_Controller {
 			$data['welcome'] = "Welcome $loggedUser";
 			$this->load->view('templates/userHeader', $data);
 		}else{
-			$data["error"] = "Wrong Username and Password";
+			
+			$this->session->set_userdata('error', true);
+			
 			redirect('', 'refresh');			
 		}
-		
 	}
 	
 	public function logout()
 	{
 		$this->load->helper('url');
+		$this->session->set_userdata('error', false);
+
 		redirect('', 'refresh');
+
 
 		$this->session->sess_destroy();
 	}

@@ -1,6 +1,13 @@
 <?php
-	$this->load->library('session'); 
+	$error = $this->session->userdata('error');
+	
+	if($error == true)
+	{
+		echo "<p><span style='color:red;'>Wrong Username & Password</span></p>";
+		$this->session->sess_destroy();
+
 		
+	};	
 
 	$this->load->helper('form');
 	echo form_open('userController/login');
