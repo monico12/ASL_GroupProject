@@ -1,4 +1,5 @@
 <?php
+	$this->load->library('session');
 	$this->load->helper('form');
 	echo form_label('Username: ', 'username');
 	echo form_input('username');
