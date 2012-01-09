@@ -27,11 +27,15 @@ class UserController extends CI_Controller {
 		if($q->num_rows() > 0) {
 			
 			$loggedUser = $q->row()->username;
-			
+			$loggedUserId = $q->row()->id;
+
 			$this->session->set_userdata('username',$loggedUser);
+			$this->session->set_userdata('userID', $loggedUserId);
 			
-			$data['welcome'] = "Welcome $loggedUser";
+			$userdata['welcome'] = "Welcome $loggedUser";
+			
 			$this->load->view('templates/userHeader', $data);
+			//$this->load->view('templates/projectPanel', $loggedUserId);
 		}else{
 			
 			$this->session->set_userdata('error', true);
