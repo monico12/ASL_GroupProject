@@ -8,13 +8,16 @@ class UserController extends CI_Controller {
 		
 		
 		$this->load->model('UserModel');
-		$test = $this->UserModel->getUser('admin');
+		//$test = $this->UserModel->getUser('admin');
+		$this->load->view('header');
+
 				
 		
 	}
 	
 	public function login()
 	{
+		
 		$username = $this->input->post('username'); 
 		$password = $this->input->post('password');
 		//$enpassword = md5($password);
