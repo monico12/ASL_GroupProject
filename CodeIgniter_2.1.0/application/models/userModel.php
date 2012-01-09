@@ -8,18 +8,30 @@ class UserModel extends CI_Model {
     }
 
     //gets users by username
-    function getUser($username)
+    function getUser($username, $password)
     {
-    	$query = $this->db->get_where('users', array('username' => $username));
+    	$query = $this->db->get_where('users', array('username' => $username, 'password' => $password));
         
         //var_dump($query->result());
 
-    	//return $query->result();
+    	return $query->result();
         
+<<<<<<< HEAD
         /*foreach($query->result() as $row)
         {
             echo $row->username." ";
         }*/
+||||||| merged common ancestors
+        foreach($query->result() as $row)
+        {
+            echo $row->username." ";
+        }
+=======
+        //foreach($query->result() as $row)
+        //{
+        //    echo $row->username." ";
+        //}
+>>>>>>> bbb3426aad2e1b76f563cdbac0e146117782c325
         
     }
     
