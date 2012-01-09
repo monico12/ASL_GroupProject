@@ -25,9 +25,6 @@ class ProjectController extends CI_Controller {
 		$this->ProjectModel->createProject($data);
 
 		$query = $this->ProjectModel->getProjectsByUserId(1);
-
-		//$data['welcome'] = "Welcome $loggedUser";
-		//$this->load->view('templates/userHeader', $data);
 		
 		$data['list'] = $query;
 		$this->load->view('project/projectList', $data);
