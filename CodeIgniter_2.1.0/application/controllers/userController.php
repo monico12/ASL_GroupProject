@@ -12,6 +12,26 @@ class UserController extends CI_Controller {
 				
 		
 	}
+	
+	public function login()
+	{
+		$username = $this->input->post('username'); 
+		$password = $this->input->post('password');
+		//$enpassword = md5($password);
+		$this->UserModel->getUser($username, $password);
+		
+		echo "This is working!";
+		
+	        //$this->session->set_userdata('username',$loggedUser);
+
+		
+	}
+	
+	public function logout()
+	{
+		$this->session->sess_destroy();
+
+	}
 
 }
 ?>
