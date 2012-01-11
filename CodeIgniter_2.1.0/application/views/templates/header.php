@@ -5,7 +5,7 @@
 	echo link_tag('/css/main.css', 'stylesheet', 'text/css');
 	
 	
-	echo "<div id='header'><h1>Project Manager</h1>";
+	echo "<div id='header'><h1>Project  Manager</h1>";
 	
 	$this->session->set_userdata('loggedin', false);
 

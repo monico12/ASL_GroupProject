@@ -1,6 +1,11 @@
 <?php
 	$this->load->helper('url');
 	$this->load->helper('form');
+	
+	echo form_open('projectController/projectForm');
+	echo form_submit('newProject', 'New Project');
+	echo form_close();
+	
 	//echo $this->session-
 	if(isset($list))
 	{

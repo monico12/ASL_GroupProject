@@ -15,11 +15,10 @@ class ProjectController extends CI_Controller {
 		$this->load->view('templates/userHeader', $data);    
     }
 
-	public function index()
+	public function projectForm()
 	{
-		//$this->load->model('ProjectModel');
-		//$this->load->view('project/projectForm');
-		//$this->load->view()	
+		$this->viewProjects();
+		$this->load->view('project/projectForm');
 	}
 
 	public function createProject()
@@ -31,13 +30,11 @@ class ProjectController extends CI_Controller {
 				'title' => $title,
 				'description' => $description,
 				'user_id' => $this->session->userdata('userID')
-			);
-			
-			echo "works";
-		
+			);		
 		$this->ProjectModel->createProject($data);
-
 		
+		redirect('projectController/viewProjects', 'refresh');
+
 	}
 
 	public function deleteProject()
