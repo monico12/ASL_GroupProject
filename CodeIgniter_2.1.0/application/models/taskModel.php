@@ -12,7 +12,7 @@ class TaskModel extends CI_Model {
     function getAllTaskByProjectId($id)
     {
     	//$query = $this->db->get_where('tasks', array('id' => $id));
-    	$query = $this->db->query("select * from tasks where id = '$id'");
+    	$query = $this->db->query("select * from tasks where project_id = '$id'");
         return $query;
     }
     

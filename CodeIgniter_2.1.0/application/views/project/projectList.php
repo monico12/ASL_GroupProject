@@ -6,7 +6,6 @@
 	echo form_submit('newProject', 'New Project');
 	echo form_close();
 	
-	//echo $this->session-
 	if(isset($list))
 	{
 		?><ul>
