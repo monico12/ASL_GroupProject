@@ -40,6 +40,7 @@
 
 $route['default_controller'] = "pages/view";
 $route['404_override'] = '';
+$route['projectController/viewTask/:num'] = 'projectController/viewTask';
 
 
 /* End of file routes.php */

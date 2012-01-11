@@ -105,5 +105,11 @@ class ProjectController extends CI_Controller {
 		$this->load->view('project/projectList', $data);
 	}
 
+	public function viewTask()
+	{
+		echo "works";
+		
+	}
+
 }
 ?>

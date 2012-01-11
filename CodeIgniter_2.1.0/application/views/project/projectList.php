@@ -24,8 +24,9 @@
 
 		foreach($list->result() as $row)
         { ?>
+        	
         	<?=form_open('projectController/deleteProject');	?>		
-			<li><a href="<?php echo $row->id ?>">
+			<li><a href="viewTask/<?php echo $row->id ?>">
 				<?php echo $row->title ?></a>
 				<?php 
 						
@@ -33,6 +34,8 @@
 						echo form_hidden('id', $row->id);
 						echo form_submit('delete', 'Delete');
 						//echo form_button($buttonData);
+
+
 
 				?>
 			</li><?php echo form_close();
