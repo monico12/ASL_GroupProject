@@ -5,6 +5,9 @@ class ProjectController extends CI_Controller {
     {
 
         parent::__construct();
+        $dsn = 'mysql://root:root@localhost/aslGroupProject';
+		$this->load->database($dsn);
+        $this->load->model('ProjectModel');
         $this->load->helper('url');
     	$loggedUser = $this->session->userdata('username');
 		$data['welcome'] = "Welcome $loggedUser";
@@ -29,27 +32,20 @@ class ProjectController extends CI_Controller {
 				'description' => $description,
 				'user_id' => $this->session->userdata('userID')
 			);
-			$userID = $this->session->userdata('userID');
+			
 			echo "works";
-		$dsn = 'mysql://root:root@localhost/aslGroupProject';
-		$this->load->database($dsn);
 		
-		$this->load->model('ProjectModel');
 		$this->ProjectModel->createProject($data);
 
-		$query = $this->ProjectModel->getProjectsByUserId($userID);
 		
-		$data['list'] = $query;
-		$this->load->view('project/projectList', $data);
 	}
 
 	public function deleteProject()
 	{
-		$this->load->helper('url');
+		/*$this->load->helper('url');
 		$id = $this->input->post('id');
-
-		//$dsn = 'mysql://root:root@localhost/aslGroupProject';
-		//$this->load->database($dsn);
+		echo $id;
+		
 
 		$this->load->model('ProjectModel');
 		$this->ProjectModel->deleteProject($id);
@@ -58,12 +54,28 @@ class ProjectController extends CI_Controller {
 		
 		//$data['list'] = $query;
 		//$this->load->view('project/projectList', $data);
-		//redirect('/projectController/createProject/', 'refresh');
+		//redirect('/projectController/createProject/', 'refresh');*/
+		
+		$id = $this->input->post('id');
+
+		$this->load->model('ProjectModel');
+		$this->ProjectModel->deleteProject($id);
+
+		redirect('projectController/viewProjects', 'refresh');
 	}
 
 	public function updateProject()
 	{
 		
+	}
+
+	public function viewProjects()
+	{
+		$userID = $this->session->userdata('userID');
+		$query = $this->ProjectModel->getProjectsByUserId($userID);
+		
+		$data['list'] = $query;
+		$this->load->view('project/projectList', $data);
 	}
 
 }

@@ -15,19 +15,22 @@
     	//	'type' => 'button',
     	//	'content' => 'Delete'
 		//);
-		echo form_open('projectController/deleteProject');
+		
 
 		foreach($list->result() as $row)
-        { ?>			
-			<li><a href="">
+        { ?>
+        	<?=form_open('projectController/deleteProject');	?>		
+			<li><a href="<?php $row->id ?>">
 				<?php echo $row->title ?></a>
 				<?php 
+						
 						//hidden form containing the projects id
 						echo form_hidden('id', $row->id);
 						echo form_submit('delete', 'Delete');
 						//echo form_button($buttonData);
+
 				?>
-			</li><?php
+			</li><?php echo form_close();
 		}?>
 		</ul>
 	<?php

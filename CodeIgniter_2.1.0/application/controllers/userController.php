@@ -36,7 +36,7 @@ class UserController extends CI_Controller {
 			
 			
 			
-			redirect('projectController/createProject');
+			redirect('projectController/viewProjects');
 			/*
 			$data['welcome'] = "Welcome $loggedUser";
 			$this->load->view('templates/header');
