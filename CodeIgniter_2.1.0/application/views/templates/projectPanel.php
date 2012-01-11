@@ -1,5 +1,5 @@
 <?php
-
+	$this->load->view('projectList');
 ?>
 <div id=sidepanel>
     <h3>Projects<h3>

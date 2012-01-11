@@ -26,7 +26,9 @@ class ProjectModel extends CI_Model {
     //takes in a project id
     function deleteProject($id)
     {
-        $this->db->delete('projects',array('id' => $id));
+        //$this->db->delete('projects',array('id' => $id));
+        $this->db->where('id', $id);
+        $this->db->delete('projects'); 
     }
 
     //updates project

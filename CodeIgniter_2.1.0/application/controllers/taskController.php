@@ -7,24 +7,37 @@ class TaskController extends CI_Controller {
 
 	public function createTask()
 	{
-		$title = $this->input->post('title'); 
-		$description = $this->input->post('description');
+		$task = $this->input->post('task'); 
+		$assigned = $this->input->post('assigned');
+		$dueDate = $this->input->post('dueDate');
 
 		$data = array(
-				'title' => $title,
-				'description' => $description,
-				'user_id' => 1
+				'task' => $task,
+				'assigned' => $assigned,
+				'dueDate' => $dueDate,
+
 			);
 		$dsn = 'mysql://root:root@localhost/aslGroupProject';
 		$this->load->database($dsn);
 		
-		$this->load->model('ProjectModel');
-		$this->ProjectModel->createProject($data);
-
-		$query = $this->ProjectModel->getProjectsByUserId(1);
+		$this->load->model('TaskModel');
+		$this->TaskModel->createTask($data);
 		
-		$data['list'] = $query;
-		$this->load->view('project/projectList', $data);
+		//needs project id
+		//$query = $this->TaskModel->getAllTaskByProjectId();
+				
+		//$data['list'] = $query;
+		//$this->load->view('project/taskList', $data);
+	}
+
+	public function deleteTask()
+	{
+		
+	}
+
+	public function updateTask()
+	{
+		
 	}
 }
 	

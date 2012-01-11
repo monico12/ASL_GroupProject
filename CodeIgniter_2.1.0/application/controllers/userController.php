@@ -34,14 +34,18 @@ class UserController extends CI_Controller {
 			$this->session->set_userdata('loggedin', true);
 						
 			
+			
+			
+			redirect('projectController/createProject');
+			/*
 			$data['welcome'] = "Welcome $loggedUser";
-			
-			
 			$this->load->view('templates/header');
 			$this->load->view('templates/userHeader', $data);
 
 
-			$this->load->view('templates/projectPanel');
+			$this->load->view('projectController/createProject');
+
+			*/
 		}else{
 			
 			$this->session->set_userdata('error', true);

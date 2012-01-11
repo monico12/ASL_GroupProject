@@ -1,6 +1,7 @@
 <?php
 	$this->load->helper('url');
 	$this->load->helper('form');
+	//echo $this->session-
 	if(isset($list))
 	{
 		$projectList = array();
@@ -20,9 +21,12 @@
         { ?>			
 			<li><a href="">
 				<?php echo $row->title ?></a>
-				<?php //echo form_button($buttonData);
+				<?php 
+						//hidden form containing the projects id
 						echo form_hidden('id', $row->id);
-						echo form_submit('delete', 'Delete')?>
+						echo form_submit('delete', 'Delete');
+						//echo form_button($buttonData);
+				?>
 			</li><?php
 		}?>
 		</ul>
