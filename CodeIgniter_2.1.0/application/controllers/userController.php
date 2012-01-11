@@ -32,7 +32,7 @@ class UserController extends CI_Controller {
 			$this->session->set_userdata('username',$loggedUser);
 			$this->session->set_userdata('userID', $loggedUserId);
 			
-			$userdata['welcome'] = "Welcome $loggedUser";
+			$data['welcome'] = "Welcome $loggedUser";
 			
 			$this->load->view('templates/userHeader', $data);
 			//$this->load->view('templates/projectPanel', $loggedUserId);

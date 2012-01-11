@@ -1,15 +1,11 @@
 <?php
-class ProjectController extends CI_Controller {
-
+class TaskController extends CI_Controller {
 	public function index()
 	{
 		
-		$this->load->model('ProjectModel');
-		$this->load->view('project/projectForm');
-		//$this->load->view()	
 	}
 
-	public function createProject()
+	public function createTask()
 	{
 		$title = $this->input->post('title'); 
 		$description = $this->input->post('description');
@@ -30,20 +26,5 @@ class ProjectController extends CI_Controller {
 		$data['list'] = $query;
 		$this->load->view('project/projectList', $data);
 	}
-
-	public function deleteProject()
-	{
-		$this->load->helper('url');
-		$id = $this->input->post('id');
-
-		$dsn = 'mysql://root:root@localhost/aslGroupProject';
-		$this->load->database($dsn);
-
-		$this->load->model('ProjectModel');
-		$this->ProjectModel->deleteProject($id);
-
-		//redirect('/projectController/createProject/', 'refresh');
-	}
-
 }
-?>
+	

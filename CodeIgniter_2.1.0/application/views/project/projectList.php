@@ -1,37 +1,32 @@
 <?php
 	$this->load->helper('url');
+	$this->load->helper('form');
 	if(isset($list))
 	{
 		$projectList = array();
 		$i = 0;
 		?><ul>
+		
 		<?php
+		//$buttonData = array(
+    	//	'id' => 'delete',
+    	//	'value' => 'true',
+    	//	'type' => 'button',
+    	//	'content' => 'Delete'
+		//);
+		echo form_open('projectController/deleteProject');
+
 		foreach($list->result() as $row)
-        {
-
-            //echo $row->title;
-            //echo $row->description;
-            //$projectList[$i] = $row->title;
-            //$i++;
-            //echo anchor('', $row->title);
-			?>
+        { ?>			
 			<li><a href="">
-				<?php echo $row->title ?>
-			</a></li><?php
+				<?php echo $row->title ?></a>
+				<?php //echo form_button($buttonData);
+						echo form_hidden('id', $row->id);
+						echo form_submit('delete', 'Delete')?>
+			</li><?php
 		}?>
-	</ul>
-<?php
+		</ul>
+	<?php
+		
 	}
-
-
-
-	$this->load->helper('html');
-	//$this->load->controller('projectController');
-
-
-	//$projectList = array();
-
-	
-
-	//echo anchor('#', ul($projectList, 'projectList'));
 
