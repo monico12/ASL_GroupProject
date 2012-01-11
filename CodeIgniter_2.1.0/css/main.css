@@ -2,10 +2,10 @@ body{
     font-family: 'Overlock', cursive;
 }
 
-
-
-
-
+#sidepanel{
+    width: 300px;
+    border: 1px solid;
+}
 
 
 

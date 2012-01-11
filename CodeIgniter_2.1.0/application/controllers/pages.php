@@ -24,6 +24,8 @@
 	
 	
             $this->load->view('templates/header', $data);
+	    $this->load->view('templates/loginForm');
+
             $this->load->view('pages/'.$page, $data);
 	}
     }

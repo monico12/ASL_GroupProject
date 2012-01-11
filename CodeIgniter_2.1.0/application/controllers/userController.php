@@ -31,14 +31,22 @@ class UserController extends CI_Controller {
 
 			$this->session->set_userdata('username',$loggedUser);
 			$this->session->set_userdata('userID', $loggedUserId);
+			$this->session->set_userdata('loggedin', true);
+						
 			
 			$data['welcome'] = "Welcome $loggedUser";
 			
+			
+			$this->load->view('templates/header');
 			$this->load->view('templates/userHeader', $data);
+
+
+			$this->load->view('templates/projectPanel');
 			//$this->load->view('templates/projectPanel', $loggedUserId);
 		}else{
 			
 			$this->session->set_userdata('error', true);
+			
 			
 			redirect('', 'refresh');			
 		}
@@ -48,11 +56,17 @@ class UserController extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->session->set_userdata('error', false);
+		$this->session->set_userdata('loggedin', false);
+
 
 		redirect('', 'refresh');
-
-
+		
+		//// Session not being destroyed
 		$this->session->sess_destroy();
+
+
+
+		
 	}
 
 }
