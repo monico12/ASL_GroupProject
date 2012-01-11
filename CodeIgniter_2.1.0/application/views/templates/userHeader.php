@@ -5,6 +5,4 @@
         echo anchor('userController/logout', 'Logout');
         echo "<br/>"; 
     }
-    
-
 ?>
