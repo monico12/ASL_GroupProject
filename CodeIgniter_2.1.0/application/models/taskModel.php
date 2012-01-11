@@ -11,8 +11,9 @@ class TaskModel extends CI_Model {
     //gets all task
     function getAllTaskByProjectId($id)
     {
-    	$query = $this->db->get_where('tasks', array('id' => $id));
-    	return $query;
+    	//$query = $this->db->get_where('tasks', array('id' => $id));
+    	$query = $this->db->query("select * from tasks where id = '$id'");
+        return $query;
     }
     
     //creates a new task

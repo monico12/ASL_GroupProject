@@ -9,24 +9,15 @@
 	//echo $this->session-
 	if(isset($list))
 	{
-		$projectList = array();
-		$i = 0;
 		?><ul>
 		
 		<?php
-		//$buttonData = array(
-    	//	'id' => 'delete',
-    	//	'value' => 'true',
-    	//	'type' => 'button',
-    	//	'content' => 'Delete'
-		//);
-		
 
 		foreach($list->result() as $row)
         { ?>
         	
         	<?=form_open('projectController/deleteProject');	?>		
-			<li><a href="viewTask/<?php echo $row->id ?>">
+			<li><a href="/ASL_GroupProject/CodeIgniter_2.1.0/index.php/projectController/viewTask/<?php echo $row->id ?>">
 				<?php echo $row->title ?></a>
 				<?php 
 						

@@ -8,7 +8,7 @@ class TaskController extends CI_Controller {
 		$this->load->model('TasksModel');
 	}
 	
-	public function getTasksById($id)
+	public function getTask()
 	{
 		
 	}
@@ -43,6 +43,11 @@ class TaskController extends CI_Controller {
 	}
 
 	public function updateTask()
+	{
+		
+	}
+
+	public function viewTask()
 	{
 		
 	}
