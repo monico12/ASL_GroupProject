@@ -10,9 +10,8 @@ class UserModel extends CI_Model {
     //gets users by username
     function getUser($username, $password)
     {
-    	$query = $this->db->get_where('users', array('username' => $username, 'password' => $password));
-        
-        		
+       
+        $query = $this->db->query("select * from users where username = '$username' and password = '$password'");
         
         
         return $query;

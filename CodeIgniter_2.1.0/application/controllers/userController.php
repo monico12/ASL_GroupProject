@@ -42,7 +42,6 @@ class UserController extends CI_Controller {
 
 
 			$this->load->view('templates/projectPanel');
-			//$this->load->view('templates/projectPanel', $loggedUserId);
 		}else{
 			
 			$this->session->set_userdata('error', true);
@@ -63,8 +62,6 @@ class UserController extends CI_Controller {
 		
 		//// Session not being destroyed
 		$this->session->sess_destroy();
-
-
 
 		
 	}

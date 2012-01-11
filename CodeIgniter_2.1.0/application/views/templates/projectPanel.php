@@ -2,7 +2,7 @@
 
 ?>
 <div id=sidepanel>
-    <h3>Projects<h3><input type="button">
+    <h3>Projects<h3>
     
     <ul>
         <li>Project 1</li>
