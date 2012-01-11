@@ -18,7 +18,37 @@ class ProjectController extends CI_Controller {
 	public function projectForm()
 	{
 		$this->viewProjects();
-		$this->load->view('project/projectForm');
+		$this->load->model('UserModel');
+		$q =  $this->UserModel->getAll();
+
+		//echo $q->result();
+		
+		$result = $q->result();
+		
+		var_dump($result);
+		
+		foreach($q->result() as $r)
+		{
+			//echo $r->id;
+			//echo $r->username;
+			//$array = array($r->username);
+		};
+		
+		//var_dump($array);
+		
+		$options["test"] = array(
+                  'small'  => 'Small Shirt',
+                  'med'    => 'Medium Shirt',
+                  'large'   => 'Large Shirt',
+                  'xlarge' => 'Extra Large Shirt',
+                );
+		
+		
+		
+		$data["membersList"] = $result;
+		
+		
+		$this->load->view('project/projectForm', $data);
 	}
 
 	public function createProject()

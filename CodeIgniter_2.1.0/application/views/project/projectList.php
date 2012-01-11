@@ -25,7 +25,7 @@
 		foreach($list->result() as $row)
         { ?>
         	<?=form_open('projectController/deleteProject');	?>		
-			<li><a href="<?php $row->id ?>">
+			<li><a href="<?php echo $row->id ?>">
 				<?php echo $row->title ?></a>
 				<?php 
 						

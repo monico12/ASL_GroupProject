@@ -22,12 +22,13 @@ class UserModel extends CI_Model {
     //gets all users
     function getAll()
     {
-        $query = $this->db->get('users');
+        $query = $this->db->query('SELECT id, username FROM users');
         
-        foreach($query->result() as $row)
-        {
-            echo $row->username;
-        }
+        return $query;
+        //foreach($query->result() as $row)
+        //{
+        //    return $row->username;
+        //}
     }
 
     //adds new user

@@ -1,10 +1,18 @@
 <?php
 class TaskController extends CI_Controller {
-	public function index()
+	function __construct()
+	{
+		parent::__construct();
+		$dsn = 'mysql://root:root@localhost/aslGroupProject';
+		$this->load->database($dsn);
+		$this->load->model('TasksModel');
+	}
+	
+	public function getTasksById($id)
 	{
 		
 	}
-
+	
 	public function createTask()
 	{
 		$task = $this->input->post('task'); 
@@ -17,8 +25,7 @@ class TaskController extends CI_Controller {
 				'dueDate' => $dueDate,
 
 			);
-		$dsn = 'mysql://root:root@localhost/aslGroupProject';
-		$this->load->database($dsn);
+		
 		
 		$this->load->model('TaskModel');
 		$this->TaskModel->createTask($data);
