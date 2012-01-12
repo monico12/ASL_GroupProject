@@ -110,15 +110,37 @@ class ProjectController extends CI_Controller {
 
 		$this->viewProjects();
 		$projectId = $this->uri->segment(3);
+<<<<<<< HEAD
 		echo $projectId;
 
 		
-		$this->load->model('TaskModel');
+||||||| merged common ancestors
 		
+=======
+>>>>>>> 0615cf4b5080c7d159545dc5f7cccb53127999a9
+		$this->load->model('TaskModel');
+<<<<<<< HEAD
+		
+||||||| merged common ancestors
+	
+=======
+>>>>>>> 0615cf4b5080c7d159545dc5f7cccb53127999a9
 		$query = $this->TaskModel->getAllTaskByProjectId($projectId);
+<<<<<<< HEAD
 		
 		var_dump($query->result());
 		$data['id'] = "banana";
+||||||| merged common ancestors
+		echo $query;
+		var_dump($query->id);
+		$data['id'] = "banana";
+=======
+		
+		//echo $query->result();
+		var_dump($query->result());
+		
+		$data['id'] = $query->result();
+>>>>>>> 0615cf4b5080c7d159545dc5f7cccb53127999a9
 		$this->load->view('project/taskList', $data);
 	}
 
