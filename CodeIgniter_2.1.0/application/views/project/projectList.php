@@ -2,15 +2,17 @@
 	$this->load->helper('url');
 	$this->load->helper('form');
 	
-	echo form_open('projectController/projectForm');
-	echo form_submit('newProject', 'New Project');
-	echo form_close();
+	echo"</div>";
+	
 	
 	if(isset($list))
 	{
-		?><ul>
+		?><div id='projectpanel'><ul>
 		
 		<?php
+		echo form_open('projectController/projectForm');
+		echo form_submit('newProject', 'New Project');
+		echo form_close();
 
 		foreach($list->result() as $row)
         { ?>
@@ -31,7 +33,10 @@
 			</li><?php echo form_close();
 		}?>
 		</ul>
+		</div>
 	<?php
 		
 	}
+	
+	
 

@@ -10,7 +10,7 @@ class ProjectController extends CI_Controller {
         $this->load->model('ProjectModel');
         $this->load->helper('url');
     	$loggedUser = $this->session->userdata('username');
-		$data['welcome'] = "Welcome $loggedUser";
+		$data['welcome'] = "Welcome $loggedUser!";
 		$this->load->view('templates/header');
 		$this->load->view('templates/userHeader', $data);    
     }
@@ -115,7 +115,7 @@ class ProjectController extends CI_Controller {
 		$query = $this->TaskModel->getAllTaskByProjectId($projectId);
 
 		//echo $query->result();
-		var_dump($query->result());
+		//var_dump($query->result());
 		
 		$data['id'] = $query->result();
 

@@ -5,7 +5,7 @@
     if(isset($id))
     {
         
-        ?><ul>
+        ?><div id="taskpanel"><ul>
         
         <?php
             foreach($id as $row)
@@ -21,12 +21,10 @@
                         echo form_submit('delete', 'Delete');
                         //echo form_button($buttonData);
 
-
-
                 ?>
             </li><?php echo form_close();
         }?>
-        </ul>
+        </ul></div>
     <?php
         
     

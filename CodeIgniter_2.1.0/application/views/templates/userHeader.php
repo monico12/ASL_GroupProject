@@ -1,8 +1,9 @@
 <?php
     if(isset($welcome))
     {
-        echo "<h2><span style='color:red;'>$welcome</span></h2>";
-        echo anchor('userController/logout', 'Logout');
-        echo "<br/>"; 
+       $logoutAtt = array ('id' => 'logoutbtn');
+        echo "<div id='welcomeuser'><h3>$welcome</h3>";
+        echo anchor('userController/logout', 'Logout', $logoutAtt);
+        echo "</div>";
     }
 ?>
