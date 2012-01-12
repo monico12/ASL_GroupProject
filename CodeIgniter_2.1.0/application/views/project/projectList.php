@@ -7,16 +7,19 @@
 	
 	if(isset($list))
 	{
-		?><div id='projectpanel'><ul>
+		?><div id='projectpanel'>
 		
+		<h2>Projects</h2>
 		<?php
-		$btnAtt = array('class' => 'greynewbutton', 'name' => 'newproject');
+		$btnAtt = array('class' => 'newbtn', 'name' => 'newproject');
+		$btnDeleteAtt = array('class' => 'deletebutton', 'delete' => 'delete');
 
 		
 		echo form_open('projectController/projectForm');
 		echo form_submit($btnAtt, 'New Project');
 		echo form_close();
-
+		
+		echo "<ul>";
 		foreach($list->result() as $row)
         { ?>
         	
@@ -27,7 +30,7 @@
 						
 						//hidden form containing the projects id
 						echo form_hidden('id', $row->id);
-						echo form_submit('delete', 'Delete');
+						echo form_submit($btnDeleteAtt, 'Delete');
 						//echo form_button($buttonData);
 
 

@@ -3,6 +3,11 @@ body{
     overflow:hidden;
 }
 
+a{
+    text-decoration: none;
+    
+}
+
 label{
     margin-left:10px;
     
@@ -40,7 +45,8 @@ ul{
     float:right;
     
 }
-h3{
+
+#welcomeuser h3{
     float:left;
 }
 
@@ -58,6 +64,22 @@ h3{
 }
 
 
+
+#projectpanel li{
+    width:200px;
+    overflow:hidden;
+    margin:10px;
+
+}
+
+#taskpanel li{
+    width:400px;
+    overflow:hidden;
+    margin:8px;
+}
+
+
+/*-------------CSS3 Input----------------------*/
 
 
 
@@ -144,9 +166,68 @@ h3{
 
 
 
+/*------New Buttons-------*/
+.newbtn{
+    margin-left:4px;
+    background-color: #7fbf4d;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7fbf4d), color-stop(100%, #63a62f));
+    background-image: -webkit-linear-gradient(top, #7fbf4d, #63a62f);
+    background-image: -moz-linear-gradient(top, #7fbf4d, #63a62f);
+    background-image: -ms-linear-gradient(top, #7fbf4d, #63a62f);
+    background-image: -o-linear-gradient(top, #7fbf4d, #63a62f);
+    background-image: linear-gradient(top, #7fbf4d, #63a62f);
+    border: 1px solid #63a62f;
+    border-bottom: 1px solid #5b992b;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 0 0 #96ca6d;
+    -moz-box-shadow: inset 0 1px 0 0 #96ca6d;
+    -ms-box-shadow: inset 0 1px 0 0 #96ca6d;
+    -o-box-shadow: inset 0 1px 0 0 #96ca6d;
+    box-shadow: inset 0 1px 0 0 #96ca6d;
+    color: #fff;
+    font: bold 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    line-height: 1;
+    padding: 3px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #4c9021;
+    width: 90px;
+}
+.newbtn:hover {
+      background-color: #76b347;
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #76b347), color-stop(100%, #5e9e2e));
+      background-image: -webkit-linear-gradient(top, #76b347, #5e9e2e);
+      background-image: -moz-linear-gradient(top, #76b347, #5e9e2e);
+      background-image: -ms-linear-gradient(top, #76b347, #5e9e2e);
+      background-image: -o-linear-gradient(top, #76b347, #5e9e2e);
+      background-image: linear-gradient(top, #76b347, #5e9e2e);
+      -webkit-box-shadow: inset 0 1px 0 0 #8dbf67;
+      -moz-box-shadow: inset 0 1px 0 0 #8dbf67;
+      -ms-box-shadow: inset 0 1px 0 0 #8dbf67;
+      -o-box-shadow: inset 0 1px 0 0 #8dbf67;
+      box-shadow: inset 0 1px 0 0 #8dbf67;
+      cursor: pointer;
+}
+.newbtn:active {
+      border: 1px solid #5b992b;
+      border-bottom: 1px solid #538c27;
+      -webkit-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+      -moz-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+      -ms-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+      -o-box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+      box-shadow: inset 0 0 8px 4px #548c29, 0 1px 0 0 #eeeeee;
+}
 
 
-.greynewbutton {
+
+
+/* Delete Button */
+
+.deletebutton {
+    float:right;
   background-color: #eeeeee;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #eeeeee), color-stop(100%, #cccccc));
   background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
@@ -164,11 +245,11 @@ h3{
   color: #333;
   font: bold 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
   line-height: 1;
-  padding: 5px 0;
+  padding: 2px 0;
   text-align: center;
   text-shadow: 0 1px 0 #eee;
-  width: 100px; }
-greynewbutton:hover {
+  width: 60px; }
+.deletebutton:hover {
     background-color: #dddddd;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #dddddd), color-stop(100%, #bbbbbb));
     background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
@@ -181,7 +262,7 @@ greynewbutton:hover {
     cursor: pointer;
     text-shadow: 0 1px 0 #ddd;
 }
-greynewbutton:active {
+.deletebutton:active {
     border: 1px solid #aaa;
     border-bottom: 1px solid #888;
     -webkit-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
@@ -190,5 +271,6 @@ greynewbutton:active {
     -o-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
     box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
 }
+
 
 
