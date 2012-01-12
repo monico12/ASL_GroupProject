@@ -110,6 +110,7 @@ class ProjectController extends CI_Controller {
 
 		$this->viewProjects();
 		$projectId = $this->uri->segment(3);
+		$this->session->set_userdata('projectID', $projectId);
 
 		$this->load->model('TaskModel');
 		$query = $this->TaskModel->getAllTaskByProjectId($projectId);
@@ -120,6 +121,14 @@ class ProjectController extends CI_Controller {
 		$data['id'] = $query->result();
 
 		$this->load->view('project/taskList', $data);
+	}
+	
+	public function addTaskForm()
+	{
+		$this->viewProjects();
+
+		$this->load->view('project/taskForm');
+		//$this->viewTask();
 	}
 
 }

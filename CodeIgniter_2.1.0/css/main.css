@@ -19,10 +19,11 @@ ul{
 }
 
 #logo{
+    width:240px;
     float:left;
 }
 #header{
-    overflow:hidden;
+    overflow:hidden;    
 }
 
 #sidepanel{
@@ -84,6 +85,9 @@ h3{
 
 
 /*-------------CSS3 Buttons----------------------*/
+
+
+/* Login Button STyles*/
 .gbutton{
     margin-left:4px;
     background-color: #7fbf4d;
