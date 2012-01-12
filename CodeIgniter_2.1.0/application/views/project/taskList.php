@@ -8,7 +8,7 @@
         ?><ul>
         
         <?php
-            foreach($id->result() as $row)
+            foreach($id as $row)
             { ?>
             
             <?=form_open('projectController/deleteTask');    ?>      

@@ -110,12 +110,14 @@ class ProjectController extends CI_Controller {
 
 		$this->viewProjects();
 		$projectId = $this->uri->segment(3);
+		echo $projectId;
+
 		
 		$this->load->model('TaskModel');
-	
+		
 		$query = $this->TaskModel->getAllTaskByProjectId($projectId);
-		echo $query;
-		var_dump($query->id);
+		
+		var_dump($query->result());
 		$data['id'] = "banana";
 		$this->load->view('project/taskList', $data);
 	}
