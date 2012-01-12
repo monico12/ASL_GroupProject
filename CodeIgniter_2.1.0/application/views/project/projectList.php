@@ -10,8 +10,11 @@
 		?><div id='projectpanel'><ul>
 		
 		<?php
+		$btnAtt = array('class' => 'greynewbutton', 'name' => 'newproject');
+
+		
 		echo form_open('projectController/projectForm');
-		echo form_submit('newProject', 'New Project');
+		echo form_submit($btnAtt, 'New Project');
 		echo form_close();
 
 		foreach($list->result() as $row)
