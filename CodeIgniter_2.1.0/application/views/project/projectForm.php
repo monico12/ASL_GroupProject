@@ -8,6 +8,8 @@
 	$descAtt = array('class' => 'descriptiontext', 'name' => 'description');
 	$tittleAtt = array('class' => 'forminput', 'name' => 'title');
 	$membersAtt = array('class' => 'forminput', 'name' => 'members');
+	$btnAtt = array('class' => 'newbtn', 'id'=> 'formsubmit', 'name' => 'submit');
+
 
 	$this->load->model('ProjectModel');
 	$query = $this->ProjectModel->getAllUsers();
@@ -44,6 +46,6 @@
 
 		echo form_submit('add', 'Add');
 		echo form_close();*/
-	echo form_submit('submit', 'Submit');
+	echo form_submit($btnAtt, 'Submit');
 	
 	echo "</div>";
