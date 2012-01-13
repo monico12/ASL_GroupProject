@@ -7,7 +7,8 @@
 	echo form_input('task');
 
 	echo form_label('Assigned', 'assigned');
-	echo form_dropdown('assigned',array());
+	//echo form_dropdown('assigned',array());
+	echo form_input('assigned');
 
 	echo form_label('Due Date', 'dueDate');
 	echo form_input('dueDate');

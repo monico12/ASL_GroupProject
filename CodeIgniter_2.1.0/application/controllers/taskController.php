@@ -25,7 +25,7 @@ class TaskController extends CI_Controller {
 
 		$data = array(
 				'task' => $task,
-				'assigned_id' => $assigned,
+				'assigned' => $assigned,
 				'duedate' => $dueDate,
 				'project_id' => $this->session->userdata('projectID')
 

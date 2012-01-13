@@ -67,6 +67,11 @@ class ProjectController extends CI_Controller {
 
 	}
 
+	public function addMembers()
+	{
+	
+	}
+
 	public function deleteProject()
 	{
 		/*$this->load->helper('url');

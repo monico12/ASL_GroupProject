@@ -36,13 +36,14 @@
 	echo form_textarea($descAtt);
 
 	echo "<br />";
-	echo form_label('Add Members', 'members');
+	//echo form_label('Add Members', 'members');
 	echo "<br />";
 	//echo form_input($membersAtt);
-	echo form_multiselect('members', $userList);
+		/*echo form_open('projectController/addMember');
+		echo form_multiselect('members', $userList);
 
-	echo form_button('add', 'Add');
-
+		echo form_submit('add', 'Add');
+		echo form_close();*/
 	echo form_submit('submit', 'Submit');
 	
 	echo "</div>";
