@@ -91,6 +91,10 @@ ul{
 
 }
 
+#taskpanel{
+        float:left;
+}
+
 #taskpanel li{
     width:400px;
     overflow:hidden;
