@@ -29,6 +29,7 @@ class UserController extends CI_Controller {
 		$username = $this->input->post('username'); 
 		$password = $this->input->post('password');
 		$repassword = $this->input->post('repassword');
+		//$enpassword = md5($password);
 
 		$userData = array(
 				'username' => $username,
@@ -125,61 +126,39 @@ class UserController extends CI_Controller {
 			if($q->num_rows() > 0) {
 				$loggedUser = $q->row()->username;
 				$loggedUserId = $q->row()->id;
+				$gooduser = TRUE;
 
 				$this->session->set_userdata('username',$loggedUser);
 				$this->session->set_userdata('userID', $loggedUserId);
-				$this->session->set_userdata('loggedin', true);
+				$this->session->set_userdata('gooduser', true);
 				
-				redirect('projectController/viewProjects');
+				
+				//echo $this->session->userdata('gooduser');
+				redirect('projectController/checkLogin');
 			}
 			
 		}else{
 				$this->session->set_userdata('error', true);
+				$this->session->se_userdata('gooduser', false);
 				redirect('', 'refresh');
 			}
 		
-		/*if($q->num_rows() > 0) {
-			
-			$loggedUser = $q->row()->username;
-			$loggedUserId = $q->row()->id;
-
-			$this->session->set_userdata('username',$loggedUser);
-			$this->session->set_userdata('userID', $loggedUserId);
-			$this->session->set_userdata('loggedin', true);
-			
-			redirect('projectController/viewProjects');
-			/*
-			$data['welcome'] = "Welcome $loggedUser";
-			$this->load->view('templates/header');
-			$this->load->view('templates/userHeader', $data);
-
-
-			$this->load->view('projectController/createProject');
-
-			
-		}else{
-			
-			$this->session->set_userdata('error', true);
-			
-			
-			redirect('', 'refresh');			
-		}*/
 	}
 	
 	public function logout()
 	{
 		$this->load->helper('url');
 		$this->session->set_userdata('error', false);
-		$this->session->set_userdata('loggedin', false);
-
-
-		redirect('', 'refresh');
+		$this->session->set_userdata('gooduser', false);
 		
-		//// Session not being destroyed
+				
 		$this->session->sess_destroy();
+		redirect('', 'refresh');
 
-		
+
 	}
+	
+
 
 
 }

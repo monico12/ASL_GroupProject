@@ -36,12 +36,7 @@ class ProjectController extends CI_Controller {
 		
 		//var_dump($array);
 		
-		$options["test"] = array(
-                  'small'  => 'Small Shirt',
-                  'med'    => 'Medium Shirt',
-                  'large'   => 'Large Shirt',
-                  'xlarge' => 'Extra Large Shirt',
-                );
+	
 		
 		
 		
@@ -76,9 +71,6 @@ class ProjectController extends CI_Controller {
 		else{
 			redirect('projectController/viewProjects', 'refresh');	
 		}
-
-			
-		
 
 	}
 
@@ -122,7 +114,12 @@ class ProjectController extends CI_Controller {
 		$query = $this->ProjectModel->getProjectsByUserId($userID);
 		
 		$data['list'] = $query;
-		$this->load->view('project/projectList', $data);
+		
+		$this->session->set_userdata('projectList', $data);
+		
+		$this->load->view('project/projectList', $this->session->userdata('projectList'));
+		
+		//$this->is_logged_in();
 	}
 
 	public function viewTask()
@@ -153,6 +150,20 @@ class ProjectController extends CI_Controller {
 
 		$this->load->view('project/taskForm');
 		//$this->viewTask();
+	}
+	
+	public function checkLogin()
+	{
+		
+		if($this->session->userdata('gooduser') == true){
+			
+			//echo "Good User";
+			$this->viewProjects();
+		
+		}else{
+			//echo "Bad User";
+			redirect('', 'refresh');
+		}
 	}
 
 }
