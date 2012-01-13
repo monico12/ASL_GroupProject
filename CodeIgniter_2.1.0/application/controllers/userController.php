@@ -133,7 +133,7 @@ class UserController extends CI_Controller {
 				
 				
 				//echo $this->session->userdata('gooduser');
-				redirect('projectController/checkLogin');
+				redirect('projectController/viewProjects');
 			}
 			
 		}else{

@@ -119,7 +119,7 @@ class ProjectController extends CI_Controller {
 		
 		$this->load->view('project/projectList', $this->session->userdata('projectList'));
 		
-		//$this->is_logged_in();
+		$this->checkLogin();
 	}
 
 	public function viewTask()
@@ -169,7 +169,7 @@ class ProjectController extends CI_Controller {
 		if($this->session->userdata('gooduser') == true){
 			
 			//echo "Good User";
-			$this->viewProjects();
+			//$this->viewProjects();
 		
 		}else{
 			//echo "Bad User";
