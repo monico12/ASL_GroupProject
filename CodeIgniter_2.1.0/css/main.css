@@ -128,7 +128,14 @@ ul{
     margin-right: 20px;
 }
 
+#assigned{
+    float:left;
+}
 
+#deletebtn{
+    margin-right: 10px;
+    float:right;
+}
 
 #taskpanel ul{
     margin-top:0;
@@ -142,7 +149,7 @@ ul{
 
 #tasklist li{
     overflow:hidden;
-    width:500px;
+    width:600px;
 }
 #label{
     overflow:hidden;
@@ -150,7 +157,7 @@ ul{
 
 #label p{
     font-weight:bold;
-    margin: 10px 300px 0 0;
+    margin: 10px 350px 0 0;
     float:left;
 }
 

@@ -61,7 +61,7 @@ class UserController extends CI_Controller {
 
 				$this->session->set_userdata('username',$loggedUser);
 				$this->session->set_userdata('userID', $loggedUserId);
-				$this->session->set_userdata('loggedin', true);
+				$this->session->set_userdata('gooduser', true);
 			
 				redirect('projectController/viewProjects');
 			}
@@ -153,7 +153,6 @@ class UserController extends CI_Controller {
 				
 		$this->session->sess_destroy();
 		redirect('', 'refresh');
-
 
 	}
 	
