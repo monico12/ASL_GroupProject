@@ -126,7 +126,6 @@ class UserController extends CI_Controller {
 			if($q->num_rows() > 0) {
 				$loggedUser = $q->row()->username;
 				$loggedUserId = $q->row()->id;
-				$gooduser = TRUE;
 
 				$this->session->set_userdata('username',$loggedUser);
 				$this->session->set_userdata('userID', $loggedUserId);

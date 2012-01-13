@@ -124,7 +124,6 @@ class ProjectController extends CI_Controller {
 
 	public function viewTask()
 	{
-
 		$this->viewProjects();
 		$projectId = $this->uri->segment(3);
 		$this->session->set_userdata('projectID', $projectId);
