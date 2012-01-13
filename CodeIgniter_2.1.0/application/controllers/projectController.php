@@ -70,7 +70,7 @@ class ProjectController extends CI_Controller {
 			redirect('projectController/viewProjects', 'refresh');
 		}
 		else{
-			echo "doesnt";
+			//echo "doesnt";
 			redirect('projectController/viewProjects', 'refresh');	
 		}
 

@@ -19,8 +19,8 @@ class TaskController extends CI_Controller {
 	{	
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('task', 'Task', 'required|alpha_numeric|min_length[3]|max_length[20]');
-		$this->form_validation->set_rules('assigned', 'Assigned', 'required|alpha_numeric|min_length[3]|max_length[50]');
+		$this->form_validation->set_rules('task', 'Task', 'alpha_numeric|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('assigned', 'Assigned', 'alpha_numeric|min_length[3]|max_length[50]');
 		//$this->form_validation->set_rules('date', 'Date', 'required');
 		
 		if($this->form_validation->run() == TRUE)
