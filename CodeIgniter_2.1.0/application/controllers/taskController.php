@@ -16,20 +16,7 @@ class TaskController extends CI_Controller {
 	}
 	
 	public function createTask()
-	{
-		
-		$task = $this->input->post('task');
-		$assigned = $this->input->post('assigned');
-		$dueDate = $this->input->post('dueDate');
-
-
-		$data = array(
-				'task' => $task,
-				'assigned' => $assigned,
-				'duedate' => $dueDate,
-				'project_id' => $this->session->userdata('projectID')
-
-			);
+	{	
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('task', 'Task', 'required|alpha_numeric|min_length[3]|max_length[20]');
@@ -38,6 +25,18 @@ class TaskController extends CI_Controller {
 		
 		if($this->form_validation->run() == TRUE)
 		{
+			$task = $this->input->post('task');
+			$assigned = $this->input->post('assigned');
+			$dueDate = $this->input->post('dueDate');
+
+			$data = array(
+				'task' => $task,
+				'assigned' => $assigned,
+				'duedate' => $dueDate,
+				'project_id' => $this->session->userdata('projectID')
+
+			);
+
 			$this->load->model('TaskModel');
 			$this->TaskModel->createTask($data);
 			
@@ -64,7 +63,35 @@ class TaskController extends CI_Controller {
 
 	public function updateTask()
 	{
+
+		$task = $this->input->post('task');
+		$assigned = $this->input->post('assigned');
+		$dueDate = $this->input->post('duedate');
+		$id = $this->input->post('id');
 		
+		$data = array(
+				'task' => $task,
+				'assigned' => $assigned,
+				'duedate' => $dueDate,
+				'id' => $id
+
+			);
+		$this->load->model('TaskModel');
+		$this->TaskModel->updateTask($data);
+		redirect('projectController/viewProjects', 'refresh');
+		//echo $id;
+
+
+		//$data = array(
+		//		'task' => $task,
+		//		'assigned' => $assigned,
+		//		'duedate' => $dueDate,
+		//		'id' => $id
+
+		//	);
+
+		
+
 	}
 
 

@@ -40,15 +40,16 @@
             foreach($id as $row)
             { ?>
             
-            <?=form_open('taskController/deleteTask');    ?>      
+            <?=form_open('projectController/updateTask');    ?>      
             <li>
                 <?php echo "<div id='task'>".$row->task."</div>" ?>
                 <?php 
                         
                         //hidden form containing the projects id
                         echo form_hidden('id', $row->id);
-                        
-                        echo form_submit($btnDeleteAtt, 'Completed');
+                    
+                        echo "<a href='taskController/deleteTask'>Delete</a> ";
+                        echo form_submit($btnDeleteAtt, 'Update');
                         
 
                         echo "<div id='date'>".$row->duedate."</div>";

@@ -142,6 +142,18 @@ class ProjectController extends CI_Controller {
 		
 		$this->load->view('project/taskList', $data);
 	}
+
+	public function updateTask()
+	{
+		$this->viewProjects();
+		$id = $this->input->post('id');
+		$this->load->model('TaskModel');
+		$query = $this->TaskModel->getTaskById($id);
+
+		$data['query'] = $query;
+		$this->load->view('templates/updateForm', $data);
+
+	}
 	
 	public function addTaskForm()
 	{
