@@ -54,10 +54,11 @@ class TaskController extends CI_Controller {
 
 	public function deleteTask()
 	{
-		$id = $this->input->post('id');
+		//$id = $this->input->post('id');
+		echo $id;
 		$this->load->model('TaskModel');
 		$this->TaskModel->deleteTask($id);
-
+		
 		redirect('projectController/viewTask/'.$this->session->userdata('projectID'), 'refresh');
 	}
 

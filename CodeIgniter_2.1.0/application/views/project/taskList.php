@@ -50,7 +50,7 @@
                     
                         echo form_submit($btnDeleteAtt, 'Update');
 
-                        echo "<a id='deletebtn'href='taskController/deleteTask'>Delete</a> ";
+                        echo "<a id='deletebtn'href='/ASL_GroupProject/CodeIgniter_2.1.0/index.php/taskController/deleteTask'>Delete</a> ";
                         
                         
                         echo "<div id='assigned'>".$row->assigned."</div>";
