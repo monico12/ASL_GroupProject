@@ -1,1 +1,7 @@
-<h1>This is the landing page</h1>
+<div id="landing">
+<p>Welcome to TooDoo Project Management Application!</p>
+
+
+
+
+</div>
