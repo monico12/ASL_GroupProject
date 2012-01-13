@@ -26,10 +26,14 @@ ul{
 
 
 #landing{
-    margin-left:20px;
+    margin-left:30px;
 }
 
-#landing p{
+#msg2{
+    width:500px;
+}
+
+#msg{
     font-size: 20px;
 }
 
@@ -91,7 +95,7 @@ ul{
 
 #projectpanel{
     width:300px;
-    margin-left:20px;
+    margin-left:30px;
     float:left;
 }
 
@@ -135,7 +139,8 @@ ul{
 }
 
 #label p{
-    margin: 10px 315px 0 0;
+    font-weight:bold;
+    margin: 10px 300px 0 0;
     float:left;
 }
 
