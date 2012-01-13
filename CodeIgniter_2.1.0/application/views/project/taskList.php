@@ -23,24 +23,33 @@
             $btnDeleteAtt = array('class' => 'deletebutton', 'delete' => 'delete');
             
             
+           
 
             echo form_open('projectController/addTaskForm');
 	    echo form_submit($btnAtt, 'New Task');
 	    echo form_close();
+        ?>
+         <div id="label">
+                <p>Task</p>
+                <p>Due Date</p>
+         </div>
         
-            echo "<ul>";
+        <?php
+            
+            echo "<ul id='tasklist'>";
             foreach($id as $row)
             { ?>
             
             <?=form_open('taskController/deleteTask');    ?>      
             <li>
-                <?php echo $row->task ?>
+                <?php echo "<div id='task'>".$row->task."</div>" ?>
                 <?php 
                         
                         //hidden form containing the projects id
                         echo form_hidden('id', $row->id);
-                        echo $row->duedate;
                         echo form_submit($btnDeleteAtt, 'Delete');
+                        echo "<div id='date'>".$row->duedate."</div>";
+                        
                         //echo form_button($buttonData);
 
                 ?>

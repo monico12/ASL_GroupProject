@@ -19,7 +19,7 @@ li{
 }
 
 ul{
-    padding-left: 5px;
+    padding-left: 0;
     
 }
 
@@ -91,14 +91,38 @@ ul{
 
 }
 
-#taskpanel{
-        float:left;
+
+#taskpanel, #task{
+    float:left;
+}
+
+#date{
+    float:right;
+    margin-right:20px;
+}
+
+
+
+#taskpanel ul{
+    margin-top:0;
 }
 
 #taskpanel li{
     width:400px;
     overflow:hidden;
-    margin:8px;
+    margin:8px 0;
+}
+
+#tasklist li{
+    overflow:hidden;
+}
+#label{
+    overflow:hidden;
+}
+
+#label p{
+    margin: 10px 215px 0 0;
+    float:left;
 }
 
 #projectform{
@@ -107,17 +131,11 @@ ul{
     float:left;
 }
 
-/*#projectform label{
-    float:left;
+#task{
+    width:300px;
 }
 
-#projectform input{
-    float:left;
-}
 
-#projectform textarea{
-    float:right;
-}
 
 
 /*-------------CSS3 Input----------------------*/
@@ -343,6 +361,7 @@ ul{
     -o-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
     box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
 }
+
 
 
 

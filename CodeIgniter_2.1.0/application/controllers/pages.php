@@ -27,6 +27,7 @@
 	        $this->load->view('templates/loginForm');
             $this->load->view('templates/signupForm');
             $this->load->view('pages/'.$page, $data);
+	    $this->load->view('templates/footer');
 	}
     }
 ?>
