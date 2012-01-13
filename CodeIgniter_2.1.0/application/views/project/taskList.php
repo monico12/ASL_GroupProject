@@ -2,10 +2,18 @@
     $this->load->helper('url');
     $this->load->helper('form');
     //echo $id;
+    
+    
     if(isset($id))
     {
+        echo "<h2>Description</h2>";
+        foreach($desc as $r){
+            echo $r->description;
+        };
         
+            
         ?><div id="taskpanel">
+        
             <h2>Tasks</h2>
 
         

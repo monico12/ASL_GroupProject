@@ -25,7 +25,7 @@ class ProjectController extends CI_Controller {
 		
 		$result = $q->result();
 		
-		var_dump($result);
+		//var_dump($result);
 		
 		foreach($q->result() as $r)
 		{
@@ -111,15 +111,19 @@ class ProjectController extends CI_Controller {
 		$this->viewProjects();
 		$projectId = $this->uri->segment(3);
 		$this->session->set_userdata('projectID', $projectId);
-
+		
+		$this->load->model('ProjectModel');
+		
+		$descquery = $this->ProjectModel->getProject($this->session->userdata('projectID'));
+		
 		$this->load->model('TaskModel');
 		$query = $this->TaskModel->getAllTaskByProjectId($projectId);
 
 		//echo $query->result();
 		//var_dump($query->result());
 		
-		$data['id'] = $query->result();
-
+		$data = array('id' => $query->result(), 'desc' => $descquery->result());
+		
 		$this->load->view('project/taskList', $data);
 	}
 	

@@ -14,6 +14,13 @@ class ProjectModel extends CI_Model {
         $query = $this->db->get_where('projects', array('user_id' => $user_id));
         return $query;
     }
+    
+    function getProject($projectId)
+    {
+        $query = $this->db->query("Select description from projects where id = '$projectId'");
+        
+        return $query;
+    }
 
     //adds new project
     //$data - array of project data: title, description, user id

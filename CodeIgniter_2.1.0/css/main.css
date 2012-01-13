@@ -25,10 +25,26 @@ ul{
 
 #logo{
     width:240px;
+    margin-left:20px;
     float:left;
 }
 #header{
     overflow:hidden;    
+}
+
+#signupform{
+    width:200px;
+    margin-right:200px;
+    float:right;
+}
+
+#signupform input{
+    margin-bottom:10px;
+}
+
+#signup{
+    margin-top:5px;
+    float:right;
 }
 
 #sidepanel{
@@ -38,10 +54,12 @@ ul{
 
 #loginform{
     margin-top: 30px;
+    margin-right:200px;
     float:right;
 }
 
 #welcomeuser{
+    margin-right:200px;
     float:right;
     
 }
@@ -60,6 +78,7 @@ ul{
 
 #projectpanel{
     width:300px;
+    margin-left:20px;
     float:left;
 }
 
@@ -76,6 +95,24 @@ ul{
     width:400px;
     overflow:hidden;
     margin:8px;
+}
+
+#projectform{
+    
+    width:250px;
+    float:left;
+}
+
+/*#projectform label{
+    float:left;
+}
+
+#projectform input{
+    float:left;
+}
+
+#projectform textarea{
+    float:right;
 }
 
 
@@ -99,6 +136,37 @@ ul{
 	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
 }
+
+.forminput{
+        margin-left: 2px;
+	padding: 3px;
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	width: 190px;
+	background: #FFFFFF url('bg_form.png') left top repeat-x;
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+
+.descriptiontext{
+     margin-left: 2px;
+	padding: 3px;
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	width: 190px;
+	background: #FFFFFF url('bg_form.png') left top repeat-x;
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+
 
 
 
