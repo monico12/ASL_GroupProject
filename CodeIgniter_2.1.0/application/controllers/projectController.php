@@ -59,16 +59,18 @@ class ProjectController extends CI_Controller {
 
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('title', 'Title', 'required|alpha_numeric|min_length[3]|max_length[20]');
-		$this->form_validation->set_rules('description', 'Description', 'required|alpha_numeric|min_length[3]|max_length[50]');
+		$this->form_validation->set_rules('title', 'Title', 'alpha_numeric|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('description', 'Description', 'alpha_numeric|min_length[3]|max_length[50]');
 
 		if($this->form_validation->run() == TRUE)
 		{
+			//echo "works";
 			$this->ProjectModel->createProject($data);
 		
 			redirect('projectController/viewProjects', 'refresh');
 		}
 		else{
+			echo "doesnt";
 			redirect('projectController/viewProjects', 'refresh');	
 		}
 
