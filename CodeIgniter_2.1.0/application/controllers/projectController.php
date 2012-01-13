@@ -53,6 +53,8 @@ class ProjectController extends CI_Controller {
 
 	public function createProject()
 	{
+
+		
 		$title = $this->input->post('title'); 
 		$description = $this->input->post('description');
 
