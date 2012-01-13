@@ -9,7 +9,19 @@
 	$tittleAtt = array('class' => 'forminput', 'name' => 'title');
 	$membersAtt = array('class' => 'forminput', 'name' => 'members');
 
-
+	$this->load->model('ProjectModel');
+	$query = $this->ProjectModel->getAllUsers();
+	//$row = $query->result();
+	//$options = array();
+	//var_dump($query->result());
+	$userList = array();
+	$i = 0;
+	foreach($query->result() as $row)
+	{
+		$userList[$i] = $row->username;
+		$i++;
+	}
+	//var_dump($query->result()->username);
 
 
 	echo form_open('projectController/createProject');
@@ -26,7 +38,8 @@
 	echo "<br />";
 	echo form_label('Add Members', 'members');
 	echo "<br />";
-	echo form_input($membersAtt);
+	//echo form_input($membersAtt);
+	echo form_multiselect('members', $userList);
 
 	echo form_button('add', 'Add');
 

@@ -45,6 +45,12 @@ class ProjectModel extends CI_Model {
         $this->db-where('id', $data->id);
         $this->db-update('user', $data);
     }
+
+    function getAllUsers()
+    {
+        $query = $this->db->query("Select username from users");
+        return $query;
+    }
     
 }
 
