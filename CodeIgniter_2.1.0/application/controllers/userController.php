@@ -37,7 +37,17 @@ class UserController extends CI_Controller {
 				'first_name' => $firstname,
 				'last_name' => $lastname
 			);
-		if($password == $repassword)
+
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('firstname', 'First Name', 'required|alpha|min_length[2]|max_length[20]');
+		$this->form_validation->set_rules('lastname', 'Last Name', 'required|alpha|min_length[2]|max_length[20]');
+		$this->form_validation->set_rules('username', 'Username', 'required|alpha_dash|min_length[3]|max_length[20]|is_unique[users.username]');
+		$this->form_validation->set_rules('password', 'Password', 'required|matches[repassword]');
+		$this->form_validation->set_rules('repassword', 'Password Confirmation', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
+		
+		if($this->form_validation->run() == TRUE)
 		{
 			$this->UserModel->createUser($userData);
 			
@@ -61,6 +71,30 @@ class UserController extends CI_Controller {
 			redirect('', 'refresh');
 		}
 
+		/*if($password == $repassword)
+		{
+			$this->UserModel->createUser($userData);
+			
+			$q = $this->UserModel->getUser($username, $password);
+		
+			if($q->num_rows() > 0) {
+			
+				$loggedUser = $q->row()->username;
+				$loggedUserId = $q->row()->id;
+
+				$this->session->set_userdata('username',$loggedUser);
+				$this->session->set_userdata('userID', $loggedUserId);
+				$this->session->set_userdata('loggedin', true);
+			
+				redirect('projectController/viewProjects');
+			}
+		}
+		else
+		{
+			$this->session->set_userdata('error', true);
+			redirect('', 'refresh');
+		}*/
+
 	}
 
 
@@ -81,7 +115,30 @@ class UserController extends CI_Controller {
 		
 		$q = $this->UserModel->getUser($username, $password);
 		
-		if($q->num_rows() > 0) {
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if($this->form_validation->run() == TRUE)
+		{
+			if($q->num_rows() > 0) {
+				$loggedUser = $q->row()->username;
+				$loggedUserId = $q->row()->id;
+
+				$this->session->set_userdata('username',$loggedUser);
+				$this->session->set_userdata('userID', $loggedUserId);
+				$this->session->set_userdata('loggedin', true);
+				
+				redirect('projectController/viewProjects');
+			}
+			
+		}else{
+				$this->session->set_userdata('error', true);
+				redirect('', 'refresh');
+			}
+		
+		/*if($q->num_rows() > 0) {
 			
 			$loggedUser = $q->row()->username;
 			$loggedUserId = $q->row()->id;
@@ -99,14 +156,14 @@ class UserController extends CI_Controller {
 
 			$this->load->view('projectController/createProject');
 
-			*/
+			
 		}else{
 			
 			$this->session->set_userdata('error', true);
 			
 			
 			redirect('', 'refresh');			
-		}
+		}*/
 	}
 	
 	public function logout()

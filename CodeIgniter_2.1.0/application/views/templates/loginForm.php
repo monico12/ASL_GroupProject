@@ -5,7 +5,7 @@
 	
 	if($error == true)
 	{
-		echo "<p><span style='color:red;'>Wrong Username & Password</span></p>";
+		//echo "<p><span style='color:red;'>Wrong Username & Password</span></p>";
 		$this->session->sess_destroy();
 	};	
 

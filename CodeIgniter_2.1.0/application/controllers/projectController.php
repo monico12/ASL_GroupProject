@@ -53,8 +53,6 @@ class ProjectController extends CI_Controller {
 
 	public function createProject()
 	{
-
-		
 		$title = $this->input->post('title'); 
 		$description = $this->input->post('description');
 
@@ -62,10 +60,25 @@ class ProjectController extends CI_Controller {
 				'title' => $title,
 				'description' => $description,
 				'user_id' => $this->session->userdata('userID')
-			);		
-		$this->ProjectModel->createProject($data);
+			);	
+
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('title', 'Title', 'required|alpha_numeric|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('description', 'Description', 'required|alpha_numeric|min_length[3]|max_length[50]');
+
+		if($this->form_validation->run() == TRUE)
+		{
+			$this->ProjectModel->createProject($data);
 		
-		redirect('projectController/viewProjects', 'refresh');
+			redirect('projectController/viewProjects', 'refresh');
+		}
+		else{
+			redirect('projectController/viewProjects', 'refresh');	
+		}
+
+			
+		
 
 	}
 
