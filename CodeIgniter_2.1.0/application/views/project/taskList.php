@@ -48,7 +48,7 @@
                         //hidden form containing the projects id
                         echo form_hidden('id', $row->id);
                         echo form_submit($btnDeleteAtt, 'Delete');
-                        echo "<div id='date'>".$row->duedate."</div>";
+                        echo "<div id='date'>".$row->duedate."</div>"; 
                         
                         //echo form_button($buttonData);
 

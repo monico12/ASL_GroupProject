@@ -1,6 +1,6 @@
 body{   
-    font-family: 'Overlock', cursive;
-    overflow:hidden;
+font-family: 'Questrial', sans-serif;
+overflow:hidden;
 }
 
 a{
@@ -23,8 +23,21 @@ ul{
     
 }
 
+
+
+#landing{
+    margin-left:20px;
+}
+
+#landing p{
+    font-size: 20px;
+}
+
 #logo{
-    width:240px;
+    text-indent:-90000px;
+    background-image:url('../images/logo.png');
+    width:140px;
+    height:40px;
     margin-left:20px;
     float:left;
 }
@@ -165,6 +178,21 @@ ul{
 	outline: 0;
 	font: normal 13px/100% Verdana, Tahoma, sans-serif;
 	width: 190px;
+	background: #FFFFFF url('bg_form.png') left top repeat-x;
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+	box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+	-webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+
+.tforminput{
+        margin-left: 2px;
+	padding: 3px;
+	border: solid 1px #E5E5E5;
+	outline: 0;
+	font: normal 13px/100% Verdana, Tahoma, sans-serif;
+	width: 150px;
 	background: #FFFFFF url('bg_form.png') left top repeat-x;
 	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
 	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
