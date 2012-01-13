@@ -33,12 +33,13 @@
             { ?>
             
             <?=form_open('taskController/deleteTask');    ?>      
-            <li><a href="">
-                <?php echo $row->task ?></a>
+            <li>
+                <?php echo $row->task ?>
                 <?php 
                         
                         //hidden form containing the projects id
                         echo form_hidden('id', $row->id);
+                        echo $row->duedate;
                         echo form_submit($btnDeleteAtt, 'Delete');
                         //echo form_button($buttonData);
 
