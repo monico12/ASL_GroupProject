@@ -98,7 +98,7 @@ ul{
 
 #date{
     float:right;
-    margin-right:20px;
+    margin-right: 20px;
 }
 
 
@@ -115,13 +115,14 @@ ul{
 
 #tasklist li{
     overflow:hidden;
+    width:500px;
 }
 #label{
     overflow:hidden;
 }
 
 #label p{
-    margin: 10px 215px 0 0;
+    margin: 10px 315px 0 0;
     float:left;
 }
 
@@ -131,9 +132,7 @@ ul{
     float:left;
 }
 
-#task{
-    width:300px;
-}
+
 
 
 
