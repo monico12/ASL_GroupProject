@@ -30,7 +30,6 @@ ul{
 }
 
 #msg2{
-    width:500px;
 }
 
 #msg{
@@ -38,12 +37,22 @@ ul{
 }
 
 #logo{
-    text-indent:-90000px;
+    text-indent:-9000px;
     background-image:url('../images/logo.png');
     width:140px;
     height:40px;
     margin-left:20px;
     float:left;
+}
+
+#screen{
+    text-indent:-9000px;
+    background-image:url('../images/appsc.png');
+    width:889px;
+    height:346px;
+    -moz-box-shadow: 0 0 5px 5px #888;
+    -webkit-box-shadow: 0 0 5px 5px#888;
+    box-shadow: 0 0 5px 5px #888;
 }
 #header{
     overflow:hidden;    
@@ -51,6 +60,7 @@ ul{
 
 #signupform{
     width:200px;
+    margin-top:75px;
     margin-right:200px;
     float:right;
 }

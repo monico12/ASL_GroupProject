@@ -11,7 +11,7 @@
 	$inputAttPass = array('class'=> 'forminput', 'name' => 'password');
 	$inputAttRePass = array('class'=> 'forminput', 'name' => 'repassword');
 	
-	echo "<h4>Signup With TooDoo!</h4>";
+	echo "<h4>Sign Up With TooDoo!</h4>";
 
 	echo form_open('userController/signup');
 
