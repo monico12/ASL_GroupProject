@@ -48,22 +48,24 @@ class ProjectController extends CI_Controller {
 
 	public function createProject()
 	{
-		$title = $this->input->post('title'); 
-		$description = $this->input->post('description');
-
-		$data = array(
-				'title' => $title,
-				'description' => $description,
-				'user_id' => $this->session->userdata('userID')
-			);	
+		
 
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('title', 'Title', 'alpha_numeric|min_length[3]|max_length[20]');
-		$this->form_validation->set_rules('description', 'Description', 'alpha_numeric|min_length[3]|max_length[50]');
+		//$this->form_validation->set_rules('title', 'Title', 'alpha_numeric|min_length[3]|max_length[20]');
+		//$this->form_validation->set_rules('description', 'Description', 'alpha_numeric|min_length[3]|max_length[50]');
 
-		if($this->form_validation->run() == TRUE)
+		//if($this->form_validation->run() == TRUE)
+		if($this->input->post('title') != '' && $this->input->post('description') != '')
 		{
+			$title = $this->input->post('title'); 
+			$description = $this->input->post('description');
+
+			$data = array(
+					'title' => $title,
+					'description' => $description,
+					'user_id' => $this->session->userdata('userID')
+				);	
 			//echo "works";
 			$this->ProjectModel->createProject($data);
 		

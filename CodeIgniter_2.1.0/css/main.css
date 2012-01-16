@@ -128,12 +128,15 @@ ul{
 }
 
 #date{
+    width: 90px;
     float:right;
-    margin-right: 20px;
+    margin-right: 5px;
 }
 
 #assigned{
-    float:left;
+  width:100px;
+    float:right;
+    margin-right:10px;
 }
 
 #deletebtn{
@@ -153,7 +156,7 @@ ul{
 
 #tasklist li{
     overflow:hidden;
-    width:600px;
+    width:750px;
 }
 #label{
     overflow:hidden;
@@ -161,8 +164,18 @@ ul{
 
 #label p{
     font-weight:bold;
-    margin: 10px 350px 0 0;
+    margin: 10px 0 0 0;
     float:left;
+}
+
+#label .right{
+  margin-right:150px;
+  float:right;
+}
+
+#label .middle{
+  margin-right:35px;
+  float:right;
 }
 
 #projectform{

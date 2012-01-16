@@ -31,7 +31,8 @@
         ?>
          <div id="label">
                 <p>Task</p>
-                <p>Due Date</p>
+                <p class="right">Due Date</p>
+                <p class="middle">Assigned</p>
          </div>
         
         <?php
@@ -45,17 +46,19 @@
                 <?php echo "<div id='task'>".$row->task."</div>" ?>
                 <?php 
                         
-                        //hidden form containing the projects id
+                        //hidden form containing the task id
                         echo form_hidden('id', $row->id);
                     
                         echo form_submit($btnDeleteAtt, 'Update');
 
-                        echo "<a id='deletebtn'href='/ASL_GroupProject/CodeIgniter_2.1.0/index.php/taskController/deleteTask'>Delete</a> ";
+                        echo "<a id='deletebtn'href='/ASL_GroupProject/CodeIgniter_2.1.0/index.php/taskController/deleteTask/".$row->id."'>Delete</a> ";
                         
                         
-                        echo "<div id='assigned'>".$row->assigned."</div>";
 
                         echo "<div id='date'>".$row->duedate."</div>";
+
+                        echo "<div id='assigned'>".$row->assigned."</div>";
+
                         
                         
                         //echo form_button($buttonData);

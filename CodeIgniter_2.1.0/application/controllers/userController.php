@@ -10,7 +10,7 @@ class UserController extends CI_Controller {
         $this->load->model('UserModel');
         $this->load->helper('url');
         $this->load->helper('array');
-
+        $this->load->helper('security');
 
     	    
     }
@@ -23,21 +23,7 @@ class UserController extends CI_Controller {
 	public function signup()
 	{
 		
-		$firstname = $this->input->post('firstname');
-		$lastname = $this->input->post('lastname');
-		$email = $this->input->post('email');
-		$username = $this->input->post('username'); 
-		$password = $this->input->post('password');
-		$repassword = $this->input->post('repassword');
-		//$enpassword = md5($password);
-
-		$userData = array(
-				'username' => $username,
-				'password' => $password,
-				'email' => $email,
-				'first_name' => $firstname,
-				'last_name' => $lastname
-			);
+		
 
 		$this->load->library('form_validation');
 
@@ -50,6 +36,21 @@ class UserController extends CI_Controller {
 		
 		if($this->form_validation->run() == TRUE)
 		{
+			$firstname = $this->input->post('firstname');
+			$lastname = $this->input->post('lastname');
+			$email = $this->input->post('email');
+			$username = $this->input->post('username'); 
+			$password = $this->input->post('password');
+			$repassword = $this->input->post('repassword');
+			//$enpassword = do_hash($password, 'md5');
+
+			$userData = array(
+					'username' => $username,
+					'password' => $password,
+					'email' => $email,
+					'first_name' => $firstname,
+					'last_name' => $lastname
+				);
 			$this->UserModel->createUser($userData);
 			
 			$q = $this->UserModel->getUser($username, $password);
@@ -64,6 +65,12 @@ class UserController extends CI_Controller {
 				$this->session->set_userdata('gooduser', true);
 			
 				redirect('projectController/viewProjects');
+			}
+			else
+			{
+
+				$this->session->set_userdata('error', true);
+				redirect('', 'refresh');
 			}
 		}
 		else
@@ -104,18 +111,6 @@ class UserController extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('array');
 
-		
-		$username = $this->input->post('username'); 
-		$password = $this->input->post('password');
-		//$enpassword = md5($password);
-		
-		$dsn = 'mysql://root:root@localhost/aslGroupProject';
-		$this->load->database($dsn);
-		
-		$this->load->model('UserModel');
-		
-		$q = $this->UserModel->getUser($username, $password);
-		
 		$this->load->library('form_validation');
 
 		$this->form_validation->set_rules('username', 'Username', 'required');
@@ -123,6 +118,16 @@ class UserController extends CI_Controller {
 
 		if($this->form_validation->run() == TRUE)
 		{
+			$username = $this->input->post('username'); 
+			$password = $this->input->post('password');
+			//$enpassword = do_hash($password, 'md5');
+			
+			$dsn = 'mysql://root:root@localhost/aslGroupProject';
+			$this->load->database($dsn);
+			
+			$this->load->model('UserModel');
+			
+			$q = $this->UserModel->getUser($username, $password);
 			if($q->num_rows() > 0) {
 				$loggedUser = $q->row()->username;
 				$loggedUserId = $q->row()->id;
@@ -135,10 +140,15 @@ class UserController extends CI_Controller {
 				//echo $this->session->userdata('gooduser');
 				redirect('projectController/viewProjects');
 			}
+			else{
+				$this->session->set_userdata('error', true);
+				$this->session->set_userdata('gooduser', false);
+				redirect('', 'refresh');
+			}
 			
 		}else{
 				$this->session->set_userdata('error', true);
-				$this->session->se_userdata('gooduser', false);
+				$this->session->set_userdata('gooduser', false);
 				redirect('', 'refresh');
 			}
 		
